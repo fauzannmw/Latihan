@@ -19,7 +19,7 @@ public class App {
 
         for (int i = 0; i < listInput.size; i++) {
             // String[] arrayInput = listInput[i].split(" ");
-            String[] arrayInput = listInput[i].split(" ");
+            String[] arrayInput = splitInput.addLast(listInput[i].split(" "));
             
         }
     }
