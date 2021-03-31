@@ -16,7 +16,8 @@ public class App {
             listInput.addLast(inputanUser);
         }
 
-        while (condition) {
+        for (int i = 0; i < listInput.size; i++) {
+            String[] arrayInput = listInput[i].split(" ");
             
         }
     }
