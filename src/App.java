@@ -12,7 +12,7 @@ public class App {
             if (inputanUser.length() == 0) {
                 break;
             }
-            
+            list1.addLast(inputanUser);
         }
     }
 }
