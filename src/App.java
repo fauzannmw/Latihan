@@ -5,6 +5,14 @@ public class App {
         Scanner input = new Scanner(System.in);
         LinkedList list1 = new LinkedList();
         LinkedList list2 = new LinkedList();
+
+
+        while (true) {
+            String inputanUser = input.nextLine();
+            if (inputanUser.length() == 0) {
+                
+            }
+        }
     }
 }
 
