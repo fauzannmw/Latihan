@@ -18,3 +18,17 @@ class Node {
         this.prev = prev;
     }
 }
+
+class LinkedList {
+    Node head;
+    Node tail;
+    int size = 0;
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int getSize() {
+        return size;
+    }
+}
