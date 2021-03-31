@@ -4,6 +4,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
         LinkedList listInput = new LinkedList();
+        LinkedList splitInput = new LinkedList();
         LinkedList list1 = new LinkedList();
         LinkedList list2 = new LinkedList();
 
@@ -17,6 +18,7 @@ public class App {
         }
 
         for (int i = 0; i < listInput.size; i++) {
+            // String[] arrayInput = listInput[i].split(" ");
             String[] arrayInput = listInput[i].split(" ");
             
         }
