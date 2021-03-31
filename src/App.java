@@ -10,8 +10,9 @@ public class App {
         while (true) {
             String inputanUser = input.nextLine();
             if (inputanUser.length() == 0) {
-                
+                break;
             }
+            
         }
     }
 }
