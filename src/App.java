@@ -61,5 +61,24 @@ class LinkedList {
         size++;
     }
 
-    
+    public void insertBefore(String before, String x) {
+        Node temp = new Node(x);
+        Node input = head;
+        while (input != null) {
+            if (input.data.equals(before)) {
+                if (input == head) {
+                    this.addFirst(x);
+                    break;
+                } else {
+                    temp.prev = input.prev;
+                    temp.next = input;
+                    input.prev.next = temp;
+                    input.prev = temp;
+                    size++;
+                    break;
+                }
+            }
+            input = input.next;
+        }
+    }
 }
