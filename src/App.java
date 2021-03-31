@@ -61,13 +61,39 @@ class LinkedList {
         size++;
     }
 
-    public void insertBefore(String before, String x) {
+    public void insertBefore(String before, String node) {
+        Node input = new Node(node);
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data.equals(before)) {
+                if (temp == head) {
+                    this.addFirst(node);
+                    break;
+                } else {
+                    input.prev = temp.prev;
+                    input.next = temp;
+                    temp.prev.next = input;
+                    temp.prev = input;
+                    size++;
+                    break;
+                }
+            }
+            input = input.next;
+        }
+    }
+
+    public void insertAfter(String after, String x) {
         Node temp = new Node(x);
         Node input = head;
         while (input != null) {
-            if (input.data.equals(before)) {
-                if (input == head) {
-                    this.addFirst(x);
+            if (input.data.equals(after)) {
+                if (input == tail) {
+                    this.addLast(x);
+                    break;
+                }
+                if (input.next == null) {
+                    input.next = tail = temp;
+                    size++;
                     break;
                 } else {
                     temp.prev = input.prev;
@@ -80,5 +106,17 @@ class LinkedList {
             }
             input = input.next;
         }
+    }
+
+    public void print() {
+        Node p = head;
+        for (int i = 0; i < size; i++) {
+            System.out.print(p.data);
+            if (p.next != null) {
+                System.out.print(" -- ");
+            }
+            p = p.next;
+        }
+        System.out.println();
     }
 }
