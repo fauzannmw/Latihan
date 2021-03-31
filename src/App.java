@@ -78,44 +78,44 @@ class LinkedList {
                     break;
                 }
             }
-            input = input.next;
+            temp = temp.next;
         }
     }
 
-    public void insertAfter(String after, String x) {
-        Node temp = new Node(x);
-        Node input = head;
-        while (input != null) {
-            if (input.data.equals(after)) {
-                if (input == tail) {
-                    this.addLast(x);
+    public void insertAfter(String after, String node) {
+        Node input = new Node(node);
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data.equals(after)) {
+                if (temp == tail) {
+                    this.addLast(node);
                     break;
                 }
-                if (input.next == null) {
-                    input.next = tail = temp;
+                if (temp.next == null) {
+                    temp.next = tail = input;
                     size++;
                     break;
                 } else {
-                    temp.prev = input.prev;
-                    temp.next = input;
-                    input.prev.next = temp;
-                    input.prev = temp;
+                    input.prev = temp.prev;
+                    input.next = temp;
+                    temp.prev.next = input;
+                    temp.prev = input;
                     size++;
                     break;
                 }
             }
-            input = input.next;
+            temp = temp.next;
         }
     }
 
     public void print() {
-        Node p = head;
+        Node temp = head;
         for (int i = 0; i < size; i++) {
-            System.out.print(p.data);
-            if (p.next != null) {
+            System.out.print(temp.data);
+            if (temp.next != null) {
                 System.out.print(" -- ");
             }
-            p = p.next;
+            temp = temp.next;
         }
         System.out.println();
     }
