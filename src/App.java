@@ -37,29 +37,29 @@ class LinkedList {
         return size;
     }
 
-    public void addFirst(String node) {
-        Node input = new Node(node);
+    public void addFirst(String input) {
+        Node temp = new Node(input);
         if (this.isEmpty()) {
-            head = tail = input;
+            head = tail = temp;
         } else {
-            input.next = head;
-            head.prev = input;
-            head = input;
+            temp.next = head;
+            head.prev = temp;
+            head = temp;
         }
         size++;
     }
 
     public void addLast(String input) {
-        Node tmp = new Node(input);
-        if (isEmpty()) {
-            tmp.prev = tmp.next = tmp;
-            head = tail = tmp;
+        Node temp = new Node(input);
+        if (this.isEmpty()) {
+            head = tail = temp;
         } else {
-            tmp.prev = tail;
-            tmp.next = head;
-            tail.next = tmp;
-            tail = tmp;
+            temp.prev = tail;
+            tail.next = temp;
+            tail = temp;
         }
         size++;
     }
+
+    
 }
