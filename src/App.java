@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
+        LinkedList listSementara = new LinkedList();
         LinkedList list1 = new LinkedList();
         LinkedList list2 = new LinkedList();
 
@@ -12,7 +13,7 @@ public class App {
             if (inputanUser.length() == 0) {
                 break;
             }
-            list1.addLast(inputanUser);
+            listSementara.addLast(inputanUser);
         }
     }
 }
