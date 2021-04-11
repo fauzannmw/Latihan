@@ -3,25 +3,71 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
-        LinkedList listInput = new LinkedList();
-        LinkedList splitInput = new LinkedList();
-        LinkedList list1 = new LinkedList();
-        LinkedList list2 = new LinkedList();
+        LinkedList[] tmp = new LinkedList[2];
+        for (int i = 0; i < tmp.length; i++) {
+            tmp[i] = new LinkedList();
+        }
 
+        String[] inputanUtama = new String[1];
+        boolean ancur = true;
+        int countinput = 0;
 
-        while (true) {
-            String inputanUser = input.nextLine();
-            if (inputanUser.length() == 0) {
+        while (ancur) {
+            String awal = input.nextLine();
+            String perintah = awal;
+
+            inputanUtama[countinput] = perintah;
+
+            if (awal.isEmpty() == true) {
+                ancur = false;
+            } else {
+                countinput++;
+
+                String[] oldArray = inputanUtama;
+                inputanUtama = new String[oldArray.length + 1];
+                System.arraycopy(oldArray, 0, inputanUtama, 0, oldArray.length);
+            }
+        }
+        for (int i = 0; i < countinput; i++)
+        // while(ancur)
+        {
+            String inputan = inputanUtama[i];
+            String[] perintah = inputan.split(" ");
+            switch (perintah[0].toLowerCase()) {
+            case "tambah":
+                tmp[Integer.parseInt(perintah[2]) - 1].addLast(perintah[3].toUpperCase());
+                break;
+            case "cetak":
+                String coba = perintah[1].substring(6, 7);
+                tmp[Integer.parseInt(coba) - 1].print();
+                break;
+            case "cetak_beda":
+                String asal = perintah[1].substring(6, 7);
+                String tujuan = perintah[2].substring(6, 7);
+
+                int penunjuk = Integer.parseInt(asal);
+                int penunjuk1 = Integer.parseInt(tujuan);
+
+                String[] temp = tmp[penunjuk - 1].toArray();
+                String[] temp1 = tmp[penunjuk1 - 1].toArray();
+
+                for (int j = 0; j < temp.length; j++) {
+                    int akhir = 0;
+                    for (int k = 0; k < temp1.length; k++) {
+                        if (temp[j].equals(temp1[k])) {
+                        } else {
+                            akhir++;
+                        }
+                    }
+                    if (akhir == temp1.length) {
+                        System.out.println("BEDA DAFTAR" + penunjuk + ": " + temp[j]);
+                    }
+                }
+
                 break;
             }
-            listInput.addLast(inputanUser);
         }
 
-        for (int i = 0; i < listInput.size; i++) {
-            // String[] arrayInput = listInput[i].split(" ");
-            String[] arrayInput = splitInput.addLast(listInput[i].split(" "));
-            
-        }
     }
 }
 
@@ -127,6 +173,16 @@ class LinkedList {
             }
             temp = temp.next;
         }
+    }
+
+    public String[] toArray() {
+        Node p = head;
+        String[] array = new String[size];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = p.data;
+            p = p.next;
+        }
+        return array;
     }
 
     public void print() {
